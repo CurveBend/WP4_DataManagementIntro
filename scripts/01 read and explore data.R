@@ -1,8 +1,13 @@
-###### Read data from an online Google sheets doc into R and make some first plots#########
+####Header:  Reading and plotting data from an online data source ####
 # Script: Han Olff
 # Date: 2025-06-18
+# Input: example Google Sheet (run following line to open it)
+browseURL("https://docs.google.com/spreadsheets/d/1YDyz1Qw6MfW5C-c6MrdaipZZk8oxJpYPEpaZPvm2LYo/")
+# Output: figures with plots of the data
+# Requirements: see file renv.lock
 
-#### Check and load libraries ####
+
+####Section: Restore environment and load libraries ####
 # check if the library versions are up to data with other collaborators
 renv::restore()
 # Load necessary libraries
@@ -10,14 +15,15 @@ library(tidyverse)
 # create a folder for output figures (but note that this is ignored by git for syncing)
 if (!dir.exists("figures")) dir.create("figures")
 
-######## Read data from Google Sheets #########
+
+
+####Section:  Read the data from Google Sheets ####
 # We use the  database as an example that is located in the following Google Drive: 
 # Proj Curvebend/5 Curvebend Data/5.4 Data WP4 CS 
 # go to drive.google.com and find it under 'shared drives
 # You can create a URL for each data table when you click on "Share / Publish to Web" in Google Sheets
-# increase the timeout for readying online files
-options(timeout = 300)  
-# read the list of tables in  the database with explanation of contents and link to access each
+options(timeout = 300)  # increase the timeout for readying online files
+#  read the list of tables in  the database
 MetTables_link<-"https://docs.google.com/spreadsheets/d/e/2PACX-1vTPj8YQWWdG1GeIB0lfDhMZ0nDbIFt-AzQ7tscuOh8SjHiRZof49Q-JEkgRNDAgYciSO60kc-VLLpZZ/pub?gid=1387882554&single=true&output=csv"
 MetTables<-readr::read_csv(MetTables_link,show_col_types = F) 
 MetTables
@@ -30,7 +36,9 @@ DimSection<-readr::read_csv(MetTables$CSV_link[MetTables$data_table == "DimSecti
 # read the animal observations on sections of transects (fact table)
 FactSectionAnimals<-readr::read_csv(MetTables$CSV_link[MetTables$data_table == "FactSectionAnimals"],show_col_types = F) 
 
-#######  query the data using join, filter, mutate and select the data  using dplyr in a pipe  #####
+
+####Section: Query the data ####
+# using join, filter, mutate and select the data  using dplyr in a pipe  
 AllData<-dplyr::left_join(FactSectionAnimals, DimSection, by="Section_ID") |>
   dplyr::left_join(DimTransect, by="Transect_ID") |>
   dplyr::left_join(DimSpecies, by="SpCode2") |>
@@ -40,8 +48,9 @@ AllData<-dplyr::left_join(FactSectionAnimals, DimSection, by="Section_ID") |>
 # check the data
 AllData
 
-######## Make a histogram of the frequency of observation different animal species in the dataset #########
-# make the histogram
+
+####Section: Plot the results ####
+### Make a histogram of the frequency of observation different animal species in the dataset 
 FigScript01_SpeciesFrequency<-ggplot(AllData, 
                                       aes(x = forcats::fct_infreq(Name_eng), fill=Domestication)) +
   geom_bar(stat = "count", color = "black") +
@@ -54,7 +63,7 @@ FigScript01_SpeciesFrequency
 ggsave(filename="./figures/FigScript01_SpeciesFrequency.png",plot=FigScript01_SpeciesFrequency,
        width=1920, height=1200, units='px')
 
-######## Make a boxplot of the abundance per section of different species in the dataset ######
+### Make a boxplot of the abundance per section of different species in the dataset 
 # Grouped boxplot
 FigScript01_SpeciesAbundance<-ggplot(AllData, aes(x = Name_eng, y=TotalCount, fill=Domestication)) +
   geom_boxplot() +
