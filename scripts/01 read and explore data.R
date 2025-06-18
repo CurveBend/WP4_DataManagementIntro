@@ -40,7 +40,7 @@ DimSection<-readr::read_csv(MetTables$CSV_link[MetTables$data_table == "DimSecti
 FactSectionAnimals<-readr::read_csv(MetTables$CSV_link[MetTables$data_table == "FactSectionAnimals"],show_col_types = F) 
 
 
-####Section: Query the data ####
+####Section: Merge and Query the datasets ####
 # using join, filter, mutate and select the data  using dplyr in a pipe  
 AllData<-dplyr::left_join(FactSectionAnimals, DimSection, by="Section_ID") |>
   dplyr::left_join(DimTransect, by="Transect_ID") |>
@@ -70,7 +70,7 @@ ggsave(filename=here::here("figures","FigScript01_SpeciesFrequency.png"),plot=Fi
 # Grouped boxplot
 FigScript01_SpeciesAbundance<-ggplot(AllData, aes(x = Name_eng, y=TotalCount, fill=Domestication)) +
   geom_boxplot() +
-  labs(title = "Boxplot by Species", x = "Species", y = "Value") +
+  labs(title = "Loliondo Plains", x = "Species", y = "count per section") +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 FigScript01_SpeciesAbundance
 # Save the figure to a png file (or pdf)
