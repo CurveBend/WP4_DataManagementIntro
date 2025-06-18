@@ -15,8 +15,8 @@ renv::restore()
 # Load necessary libraries
 library(here) # to find the root folder for the project
 library(tidyverse) # including libraries as ggplot, dplyr and readr
-# create a folder for output figures (but note that this is ignored by git for syncing)
-if (!dir.exists("figures")) dir.create("figures")
+# create a folder for output figures for this script (but note that this is ignored by git for syncing)
+if (!dir.exists("figures/01")) dir.create("figures/01")
 
 
 
@@ -63,7 +63,7 @@ FigScript01_SpeciesFrequency<-ggplot(AllData,
        y = "Frequency")
 FigScript01_SpeciesFrequency
 # Save the figure to a png file (or pdf)
-ggsave(filename=here::here("figures","FigScript01_SpeciesFrequency.png"),plot=FigScript01_SpeciesFrequency,
+ggsave(filename=here::here("figures/01","FigScript01_SpeciesFrequency.png"),plot=FigScript01_SpeciesFrequency,
        width=1920, height=1200, units='px')
 
 ### Make a boxplot of the abundance per section of different species in the dataset 
@@ -74,6 +74,6 @@ FigScript01_SpeciesAbundance<-ggplot(AllData, aes(x = Name_eng, y=TotalCount, fi
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 FigScript01_SpeciesAbundance
 # Save the figure to a png file (or pdf)
-ggsave(filename=here::here("figures","FigScript01_SpeciesAbundance.png"),plot=FigScript01_SpeciesAbundance,
+ggsave(filename=here::here("figures/01","FigScript01_SpeciesAbundance.png"),plot=FigScript01_SpeciesAbundance,
        width=1920, height=1200, units='px')
 
