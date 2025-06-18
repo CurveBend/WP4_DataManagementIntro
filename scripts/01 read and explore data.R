@@ -4,7 +4,7 @@
 # Started: 2025-06-18
 # Input: Curvebend full proposal
 browseURL("https://drive.google.com/file/d/1QzkCYul01leMi-z8WqIHOR0jP2pvVCMl/view?usp=drive_link")
-# Output: word cloud figure based on word frequencies in the proposal 
+# Output: figures for frequency of occurrence and abundance, and nmds for community structure 
 # Requirements: R 4.4.1, further see file renv.lock for library versions
 
 
