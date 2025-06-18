@@ -4,7 +4,8 @@
 # Started: 2025-06-18
 # Input: example Google Sheet (run following line to open it)
 browseURL("https://docs.google.com/spreadsheets/d/1YDyz1Qw6MfW5C-c6MrdaipZZk8oxJpYPEpaZPvm2LYo/")
-# Output: figures with plots of the data
+# study area: Loliondo (TZ) and Siana-Loita (KE)
+# Output: figures with plots of the data for frequency and abundance of species 
 # Requirements: see file renv.lock
 
 
