@@ -1,15 +1,14 @@
-####Header ####
+# ---- 01 Header ----------------------------------------------------------
 # Purpose: First excercise in reading and plotting data from an online data source
 # Author: Han Olff
 # Started: 2025-06-18
-# Input: example Google Sheet (run following line to open it)
-browseURL("https://docs.google.com/spreadsheets/d/1YDyz1Qw6MfW5C-c6MrdaipZZk8oxJpYPEpaZPvm2LYo/")
-# study area: Loliondo (TZ) and Siana-Loita (KE)
-# Output: figures with plots of the data for frequency and abundance of species 
-# Requirements: see file renv.lock
+# Input: Curvebend full proposal
+browseURL("https://drive.google.com/file/d/1QzkCYul01leMi-z8WqIHOR0jP2pvVCMl/view?usp=drive_link")
+# Output: word cloud figure based on word frequencies in the proposal 
+# Requirements: R 4.4.1, further see file renv.lock for library versions
 
 
-####Section: Restore environment and load libraries ####
+# ---- 02 Restore environment and load libraries --------------------------
 # restore your library versions to be the same as your collaborators
 renv::restore() 
 # Load necessary libraries
@@ -19,8 +18,7 @@ library(tidyverse) # including libraries as ggplot, dplyr and readr
 if (!dir.exists("figures/01")) dir.create("figures/01")
 
 
-
-####Section:  Read the data from Google Sheets ####
+# ---- 03 Read the data from Google Sheets --------------------------------
 # We use the  database as an example that is located in the following Google Drive: 
 # Proj Curvebend/5 Curvebend Data/5.4 Data WP4 CS 
 # go to drive.google.com and find it under 'shared drives
@@ -40,7 +38,8 @@ DimSection<-readr::read_csv(MetTables$CSV_link[MetTables$data_table == "DimSecti
 FactSectionAnimals<-readr::read_csv(MetTables$CSV_link[MetTables$data_table == "FactSectionAnimals"],show_col_types = F) 
 
 
-####Section: Merge and Query the datasets ####
+
+# ---- 04: Merge and Query the data to compile the dataset -----------------------------------
 # using join, filter, mutate and select the data  using dplyr in a pipe  
 AllData<-dplyr::left_join(FactSectionAnimals, DimSection, by="Section_ID") |>
   dplyr::left_join(DimTransect, by="Transect_ID") |>
@@ -51,9 +50,8 @@ AllData<-dplyr::left_join(FactSectionAnimals, DimSection, by="Section_ID") |>
 # check the data
 AllData
 
-
-####Section: Plot the results ####
-### Make a histogram of the frequency of observation different animal species in the dataset 
+# ---- 05: Plot the results -----------------------------------------------
+# Make a histogram of the frequency of observation different animal species in the dataset 
 FigScript01_SpeciesFrequency<-ggplot(AllData, 
                                       aes(x = forcats::fct_infreq(Name_eng), fill=Domestication)) +
   geom_bar(stat = "count", color = "black") +
@@ -66,7 +64,7 @@ FigScript01_SpeciesFrequency
 ggsave(filename=here::here("figures/01","FigScript01_SpeciesFrequency.png"),plot=FigScript01_SpeciesFrequency,
        width=1920, height=1200, units='px')
 
-### Make a boxplot of the abundance per section of different species in the dataset 
+# Make a boxplot of the abundance per section of different species in the dataset 
 # Grouped boxplot
 FigScript01_SpeciesAbundance<-ggplot(AllData, aes(x = Name_eng, y=TotalCount, fill=Domestication)) +
   geom_boxplot() +
