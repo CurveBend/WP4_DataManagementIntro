@@ -7,6 +7,8 @@
 renv::restore()
 # Load necessary libraries
 library(tidyverse)
+# create a folder for output figures (but note that this is ignored by git for syncing)
+if (!dir.exists("figures")) dir.create("figures")
 
 ######## Read data from Google Sheets #########
 # We use the  database as an example that is located in the following Google Drive: 
@@ -17,7 +19,7 @@ library(tidyverse)
 options(timeout = 300)  
 # read the list of tables in  the database with explanation of contents and link to access each
 MetTables_link<-"https://docs.google.com/spreadsheets/d/e/2PACX-1vTPj8YQWWdG1GeIB0lfDhMZ0nDbIFt-AzQ7tscuOh8SjHiRZof49Q-JEkgRNDAgYciSO60kc-VLLpZZ/pub?gid=1387882554&single=true&output=csv"
-MetTables<-readr::read_csv(tables_link,show_col_types = F) 
+MetTables<-readr::read_csv(MetTables_link,show_col_types = F) 
 MetTables
 # read the species list, of all potential species (dimension table)
 DimSpecies<-readr::read_csv(MetTables$CSV_link[MetTables$data_table == "DimSpecies"],show_col_types = F) 
