@@ -298,6 +298,20 @@
       ],
       "Hash": "3f038e5ac7f41d4ac41ce658c85e3042"
     },
+    "cluster": {
+      "Package": "cluster",
+      "Version": "2.1.6",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "grDevices",
+        "graphics",
+        "stats",
+        "utils"
+      ],
+      "Hash": "0aaa05204035dc43ea0004b9c76611dd"
+    },
     "conflicted": {
       "Package": "conflicted",
       "Version": "1.2.0",
@@ -960,6 +974,17 @@
       ],
       "Hash": "5dec805f506b45f9719c3816e88ccdaa"
     },
+    "permute": {
+      "Package": "permute",
+      "Version": "0.9-7",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "stats"
+      ],
+      "Hash": "abf0ca85c1c752e0d04f46334e635046"
+    },
     "pillar": {
       "Package": "pillar",
       "Version": "1.10.2",
@@ -1565,6 +1590,21 @@
         "rlang"
       ],
       "Hash": "c03fa420630029418f7e6da3667aac4a"
+    },
+    "vegan": {
+      "Package": "vegan",
+      "Version": "2.7-1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "MASS",
+        "R",
+        "cluster",
+        "lattice",
+        "mgcv",
+        "permute"
+      ],
+      "Hash": "7e18e8e05e178b95c2edea6b85acefe9"
     },
     "viridisLite": {
       "Package": "viridisLite",
