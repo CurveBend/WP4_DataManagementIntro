@@ -6,6 +6,10 @@ library(pdftools)
 library(here)
 library(tm)
 library(wordcloud2)
+library(tidyverse)
+# create a folder for output figures for this script (but note that this is ignored by git for syncing)
+if (!dir.exists("figures/02")) dir.create("figures/02")
+
 
 ####Section: Read the pdf of the proposal from Google Drive ####
 file_id <- "1QzkCYul01leMi-z8WqIHOR0jP2pvVCMl"
@@ -36,6 +40,13 @@ dtm <- tm::TermDocumentMatrix(corpus)
 matrix <- as.matrix(dtm)
 word_freqs <- sort(rowSums(matrix), decreasing = TRUE)
 df <- data.frame(word = names(word_freqs), freq = word_freqs)
+# Exclude non-informative words
+excluded_words <- c("will", "project", "proposal","different","fig","also","can","plan","study","nwaorc",
+                    "tenured","three","new","work","best")
+# Filter the data frame
+df_filtered <- df %>%
+  filter(!word %in% excluded_words)
 
 # Create the word cloud
-wordcloud2(df)
+FigScript02_wordcloud<-wordcloud2(df_filtered)
+FigScript02_wordcloud
