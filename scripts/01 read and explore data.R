@@ -1,6 +1,7 @@
-####Header:  Reading and plotting data from an online data source ####
-# Script: Han Olff
-# Date: 2025-06-18
+####Header ####
+# Purpose: First excercise in reading and plotting data from an online data source
+# Author: Han Olff
+# Started: 2025-06-18
 # Input: example Google Sheet (run following line to open it)
 browseURL("https://docs.google.com/spreadsheets/d/1YDyz1Qw6MfW5C-c6MrdaipZZk8oxJpYPEpaZPvm2LYo/")
 # Output: figures with plots of the data
@@ -8,10 +9,11 @@ browseURL("https://docs.google.com/spreadsheets/d/1YDyz1Qw6MfW5C-c6MrdaipZZk8oxJ
 
 
 ####Section: Restore environment and load libraries ####
-# check if the library versions are up to data with other collaborators
-renv::restore()
+# restore your library versions to be the same as your collaborators
+renv::restore() 
 # Load necessary libraries
-library(tidyverse)
+library(here) # to find the root folder for the project
+library(tidyverse) # including libraries as ggplot, dplyr and readr
 # create a folder for output figures (but note that this is ignored by git for syncing)
 if (!dir.exists("figures")) dir.create("figures")
 
@@ -60,16 +62,17 @@ FigScript01_SpeciesFrequency<-ggplot(AllData,
        y = "Frequency")
 FigScript01_SpeciesFrequency
 # Save the figure to a png file (or pdf)
-ggsave(filename="./figures/FigScript01_SpeciesFrequency.png",plot=FigScript01_SpeciesFrequency,
+ggsave(filename=here::here("figures","FigScript01_SpeciesFrequency.png"),plot=FigScript01_SpeciesFrequency,
        width=1920, height=1200, units='px')
 
 ### Make a boxplot of the abundance per section of different species in the dataset 
 # Grouped boxplot
 FigScript01_SpeciesAbundance<-ggplot(AllData, aes(x = Name_eng, y=TotalCount, fill=Domestication)) +
   geom_boxplot() +
-  labs(title = "Boxplot by Species", x = "Species", y = "Value")
+  labs(title = "Boxplot by Species", x = "Species", y = "Value") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
 FigScript01_SpeciesAbundance
 # Save the figure to a png file (or pdf)
-ggsave(filename="./figures/FigScript01_SpeciesAbundance.png",plot=FigScript01_SpeciesAbundance,
+ggsave(filename=here::here("figures","FigScript01_SpeciesAbundance.png"),plot=FigScript01_SpeciesAbundance,
        width=1920, height=1200, units='px')
 
