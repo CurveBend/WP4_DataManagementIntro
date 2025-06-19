@@ -1,9 +1,11 @@
 # ---- 01 Header ----------------------------------------------------------
-# Purpose: First excercise in reading and plotting data from an online data source
+# Purpose: Read and analyse coded interview data
 # Author: Han Olff
-# Started: 2025-06-18
-# Input: Curvebend full proposal
-browseURL("https://drive.google.com/file/d/1QzkCYul01leMi-z8WqIHOR0jP2pvVCMl/view?usp=drive_link")
+# Started: 2025-06-19
+# Input: 2025_CensusTransects (Google sheets database)
+# Input shared drive: Data Curvebend/WP4CS/2025_DataManagementIntro 
+# Input url: 
+browseURL("https://docs.google.com/spreadsheets/d/1YDyz1Qw6MfW5C-c6MrdaipZZk8oxJpYPEpaZPvm2LYo/edit?gid=0#gid=0")
 # Output: figures for frequency of occurrence and abundance, and nmds for community structure 
 # Requirements: R 4.4.1, further see file renv.lock for library versions
 
