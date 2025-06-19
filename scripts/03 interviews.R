@@ -2,7 +2,7 @@
 # Purpose: Read and analyse coded interview data
 # Author: Han Olff
 # Started: 2025-06-19
-# Input: 2025_interviews (Google sheets database)
+# Input file: 2025_interviews (Google sheets database)
 # Input shared drive: Data Curvebend/WP4CS/2025_DataManagementIntro 
 # Input url: 
 browseURL("https://docs.google.com/spreadsheets/d/1hvSNGoxbLve4rrKM_pNMNRgggAnWzt4_3RaBvrctRBc/edit?gid=0#gid=0")
