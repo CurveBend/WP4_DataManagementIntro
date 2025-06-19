@@ -7,12 +7,12 @@
 # Input url: 
 browseURL("https://docs.google.com/spreadsheets/d/1hvSNGoxbLve4rrKM_pNMNRgggAnWzt4_3RaBvrctRBc/edit?gid=0#gid=0")
 # Output: figures for frequency coded answers 
-# Requirements: R 4.4.1, rtools 4.4, for library versions see file renv.lock 
-
-
-# ---- 02 Restore environment and load libraries --------------------------
-# restore your library versions to be the same as your collaborators
+# Requirements: R 4.4.1, rtools 4.4, and for restoring correct library versions from renv.lock use:
 renv::restore() 
+
+
+
+# ---- 02 Load libraries and create folders --------------------------
 # Load necessary libraries
 library(here) # to find the root folder for the project
 library(tidyverse) # including libraries as ggplot, dplyr and readr

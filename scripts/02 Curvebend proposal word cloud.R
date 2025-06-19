@@ -6,12 +6,11 @@
 # Input file: Curvebendfullproposal.pdf
 browseURL("https://drive.google.com/file/d/1QzkCYul01leMi-z8WqIHOR0jP2pvVCMl/view?usp=drive_link")
 # Output: word cloud figure based on word frequencies in the proposal 
-# Requirements: R 4.4.1, rtools 4.4, for library versions see file renv.lock 
-
-
-# ---- 02 Restore environment and load libraries --------------------------
-# restore your library versions to be the same as your collaborators
+# Requirements: R 4.4.1, rtools 4.4, and for restoring correct library versions from renv.lock use:
 renv::restore() 
+
+
+# ---- 02 load libraries and create folders--------------------------
 # Load necessary libraries
 library(httr)
 library(pdftools)
