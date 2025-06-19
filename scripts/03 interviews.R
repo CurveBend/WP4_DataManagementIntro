@@ -31,6 +31,7 @@ MetTables<-readr::read_csv(MetTables_link,show_col_types = F)
 MetTables
 # read all other tables
 MetVariables<-readr::read_csv(MetTables$CSV_link[MetTables$data_table == "MetVariables"],show_col_types = F) 
+MetVariables
 DimRespondentsConf<-readr::read_csv(MetTables$CSV_link[MetTables$data_table == "DimRespondentsConf"],show_col_types = F) 
 DimRespondentsPub<-readr::read_csv(MetTables$CSV_link[MetTables$data_table == "DimRespondentsPub"],show_col_types = F) 
 DimQuestions<-readr::read_csv(MetTables$CSV_link[MetTables$data_table == "DimQuestions"],show_col_types = F) 
