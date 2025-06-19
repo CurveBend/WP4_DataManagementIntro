@@ -7,7 +7,7 @@
 # Input url: 
 browseURL("https://docs.google.com/spreadsheets/d/1hvSNGoxbLve4rrKM_pNMNRgggAnWzt4_3RaBvrctRBc/edit?gid=0#gid=0")
 # Output: figures for frequency coded answers 
-# Requirements: R 4.4.1, further see file renv.lock for library versions
+# Requirements: R 4.4.1, rtools 4.4, for library versions see file renv.lock 
 
 
 # ---- 02 Restore environment and load libraries --------------------------

@@ -7,7 +7,7 @@
 # Input url: 
 browseURL("https://docs.google.com/spreadsheets/d/1YDyz1Qw6MfW5C-c6MrdaipZZk8oxJpYPEpaZPvm2LYo/edit?gid=0#gid=0")
 # Output: figures for frequency of occurrence and abundance, and nmds for community structure 
-# Requirements: R 4.4.1, further see file renv.lock for library versions
+# Requirements: R 4.4.1, rtools 4.4, for library versions see file renv.lock 
 
 
 # ---- 02 Restore environment and load libraries --------------------------

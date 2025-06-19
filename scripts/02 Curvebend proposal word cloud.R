@@ -6,7 +6,7 @@
 # Input: Curvebend full proposal
 browseURL("https://drive.google.com/file/d/1QzkCYul01leMi-z8WqIHOR0jP2pvVCMl/view?usp=drive_link")
 # Output: word cloud figure based on word frequencies in the proposal 
-# Requirements: R 4.4.1, further see file renv.lock for library versions
+# Requirements: R 4.4.1, rtools 4.4, for library versions see file renv.lock 
 
 
 # ---- 02 Restore environment and load libraries --------------------------
