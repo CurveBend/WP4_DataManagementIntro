@@ -20,7 +20,7 @@ library(knitr)
 
 # create a folder for output figures for this script (but note that this is ignored by git for syncing)
 if (!dir.exists("figures")) dir.create("figures")
-if (!dir.exists("figures/01")) dir.create("figures/01")
+if (!dir.exists("figures/03")) dir.create("figures/03")
 
 
 # ---- 03 Read the data from Google Sheets --------------------------------
