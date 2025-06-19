@@ -17,6 +17,7 @@ library(tidyverse) # including libraries as ggplot, dplyr and readr
 library(vegan) # for multivariate analysis of community data
 
 # create a folder for output figures for this script (but note that this is ignored by git for syncing)
+if (!dir.exists("figures")) dir.create("figures")
 if (!dir.exists("figures/01")) dir.create("figures/01")
 
 

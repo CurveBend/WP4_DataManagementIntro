@@ -23,6 +23,8 @@ library(htmlwidgets)
 library(webshot2)
 
 # create a folder for output figures for this script (but note that this is ignored by git for syncing)
+# create a folder for output figures for this script (but note that this is ignored by git for syncing)
+if (!dir.exists("figures")) dir.create("figures")
 if (!dir.exists("figures/02")) dir.create("figures/02")
 
 
