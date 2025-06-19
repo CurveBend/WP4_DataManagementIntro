@@ -9,7 +9,10 @@ browseURL("https://drive.google.com/file/d/1QzkCYul01leMi-z8WqIHOR0jP2pvVCMl/vie
 # Requirements: R 4.4.1, further see file renv.lock for library versions
 
 
-# ---- 02: setup the required packages ------------------------------------
+# ---- 02 Restore environment and load libraries --------------------------
+# restore your library versions to be the same as your collaborators
+renv::restore() 
+# Load necessary libraries
 library(httr)
 library(pdftools)
 library(here)
