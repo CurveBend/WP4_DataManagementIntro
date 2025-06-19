@@ -23,7 +23,7 @@ if (!dir.exists("figures/01")) dir.create("figures/01")
 
 # ---- 03 Read the data from Google Sheets --------------------------------
 # We use the  database as an example that is located in the following Google Drive: 
-# Proj Curvebend/5 Curvebend Data/5.4 Data WP4 CS 
+# Data Curvebend/WP4CS/2025_DataManagementIntro 
 # go to drive.google.com and find it under 'shared drives
 # You can create a URL for each data table when you click on "Share / Publish to Web" in Google Sheets
 options(timeout = 300)  # increase the timeout for readying online files
