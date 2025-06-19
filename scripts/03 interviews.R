@@ -52,6 +52,9 @@ AllData<-dplyr::left_join(FactCoding, FactResponses, by="Response_ID") |>
 # check the data
 AllData
 
+
+# ----05: Analyse the data in frequency tables ----------------------------
+
 # make a tables of frequency of coded answers per gender
 # simple tables
 table(AllData$Code_ID,AllData$Gender)
