@@ -14,7 +14,7 @@ renv::restore()
 # ---- 02 Load libraries and create folders--------------------------
 # restore your library versions to be the same as your collaborators
 renv::restore() 
-# Load necessary libraries
+# Load necessary libraries needed for the project 
 library(here) # to find the root folder for the project
 library(tidyverse) # including libraries as ggplot, dplyr and readr
 library(vegan) # for multivariate analysis of community data
